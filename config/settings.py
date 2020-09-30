@@ -40,7 +40,9 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "graphene_django"
+]
 LOCAL_APPS = [
     "listify.lists.apps.ListsAppConfig",
 ]
@@ -132,3 +134,9 @@ LANGUAGES = [("en", _("English")), ("es", _("Spanish"))]
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+# Graphene
+# https://docs.graphene-python.org/projects/django/en/latest/
+GRAPHENE = {
+    "SCHEMA": "listify.schema.schema"
+}
