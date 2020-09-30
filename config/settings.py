@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -40,6 +40,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
+THIRD_PARTY_APPS = []
+LOCAL_APPS = [
+    "listify.lists.apps.ListsAppConfig",
+]
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -112,6 +119,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Locales
+# https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
+from django.utils.translation import gettext_lazy as _
+
+LOCALE_PATHS = [str(ROOT_DIR.path("locale"))]
+LANGUAGES = [("en", _("English")), ("es", _("Spanish"))]
 
 
 # Static files (CSS, JavaScript, Images)
