@@ -1,6 +1,6 @@
-Listify Backend
+elcortify Backend
 ===============
 
-Learning GraphQL from Django with Listify
+Learning GraphQL from Django with elcortify
 
 
