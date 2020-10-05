@@ -1,6 +1,6 @@
-elcortify Backend
+Elcortify Backend
 ===============
 
-Learning GraphQL from Django with elcortify
+Learning GraphQL from Django with Elcortify
 
 
