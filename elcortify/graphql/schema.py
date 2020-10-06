@@ -3,6 +3,7 @@ from graphene import relay
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 
+from elcortify.graphql.filters import ProductFilter
 from elcortify.products.models import Category, Product
 
 
@@ -18,10 +19,7 @@ class CategoryType(DjangoObjectType):
 class ProductType(DjangoObjectType):
     class Meta:
         model = Product
-        filter_fields = {
-            "name": ["exact", "icontains", "istartswith"],
-            "category__id": ["exact"],
-        }
+        filterset_class = ProductFilter
         interfaces = (relay.Node,)
 
 

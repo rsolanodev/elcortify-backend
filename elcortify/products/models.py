@@ -2,6 +2,8 @@ from django.db import models
 from model_utils.models import TimeStampedModel
 from django.utils.translation import gettext_lazy as _
 
+from elcortify.products.managers import ProductQuerySet
+
 
 class Category(TimeStampedModel):
     name = models.CharField(_("name"), max_length=200, unique=True)
@@ -29,6 +31,13 @@ class Product(TimeStampedModel):
         related_name="products",
         on_delete=models.PROTECT,
     )
+
+    objects = ProductQuerySet.as_manager()
+
+    SEARCH_FIELDS = [
+        "name",
+        "category__name",
+    ]
 
     class Meta:
         verbose_name = _("product")

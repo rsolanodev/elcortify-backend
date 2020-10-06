@@ -135,4 +135,4 @@ STATIC_URL = "/static/"
 
 # Graphene
 # https://docs.graphene-python.org/projects/django/en/latest/
-GRAPHENE = {"SCHEMA": "elcortify.schema.schema"}
+GRAPHENE = {"SCHEMA": "elcortify.graphql.schema.schema"}

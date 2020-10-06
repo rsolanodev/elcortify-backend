@@ -10,39 +10,98 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
-                ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
-                ('name', models.CharField(max_length=200, unique=True, verbose_name='name')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created",
+                    model_utils.fields.AutoCreatedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="created",
+                    ),
+                ),
+                (
+                    "modified",
+                    model_utils.fields.AutoLastModifiedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="modified",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=200, unique=True, verbose_name="name"),
+                ),
             ],
             options={
-                'verbose_name': 'category',
-                'verbose_name_plural': 'categories',
-                'ordering': ('name',),
+                "verbose_name": "category",
+                "verbose_name_plural": "categories",
+                "ordering": ("name",),
             },
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
-                ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
-                ('name', models.CharField(max_length=250, verbose_name='name')),
-                ('price', models.DecimalField(decimal_places=2, max_digits=20, verbose_name='price')),
-                ('stock', models.IntegerField(verbose_name='stock')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='products', to='products.category', verbose_name='category')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created",
+                    model_utils.fields.AutoCreatedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="created",
+                    ),
+                ),
+                (
+                    "modified",
+                    model_utils.fields.AutoLastModifiedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="modified",
+                    ),
+                ),
+                ("name", models.CharField(max_length=250, verbose_name="name")),
+                (
+                    "price",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=20, verbose_name="price"
+                    ),
+                ),
+                ("stock", models.IntegerField(verbose_name="stock")),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="products",
+                        to="products.category",
+                        verbose_name="category",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'product',
-                'verbose_name_plural': 'products',
-                'ordering': ('-created',),
+                "verbose_name": "product",
+                "verbose_name_plural": "products",
+                "ordering": ("-created",),
             },
         ),
     ]
